@@ -10,7 +10,6 @@ RSpec.describe ReservationsController, type: :routing do
       expect(get: '/reservations/1').to route_to('reservations#show', id: '1')
     end
 
-
     it 'routes to #create' do
       expect(post: '/reservations').to route_to('reservations#create')
     end

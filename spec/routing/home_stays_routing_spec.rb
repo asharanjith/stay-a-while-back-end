@@ -10,7 +10,6 @@ RSpec.describe HomeStaysController, type: :routing do
       expect(get: '/home_stays/1').to route_to('home_stays#show', id: '1')
     end
 
-
     it 'routes to #create' do
       expect(post: '/home_stays').to route_to('home_stays#create')
     end
