@@ -1,5 +1,5 @@
 class HomeStaysController < ApplicationController
-  before_action :set_home_stay, only: %i[ show update destroy ]
+  before_action :set_home_stay, only: %i[show update destroy]
 
   # GET /home_stays
   def index
@@ -39,13 +39,14 @@ class HomeStaysController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_home_stay
-      @home_stay = HomeStay.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def home_stay_params
-      params.require(:home_stay).permit(:name, :location, :description, :no_of_rooms, :rating, :price, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_home_stay
+    @home_stay = HomeStay.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def home_stay_params
+    params.require(:home_stay).permit(:name, :location, :description, :no_of_rooms, :rating, :price, :user_id)
+  end
 end
