@@ -59,6 +59,6 @@ class HomeStaysController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def home_stay_params
-    params.require(:home_stay).permit(:name, :location, :description, :no_of_rooms, :rating, :price, :images)
+    params.require(:home_stay).permit(:name, :location, :description, :no_of_rooms, :rating, :price)
   end
 end
