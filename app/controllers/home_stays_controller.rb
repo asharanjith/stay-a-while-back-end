@@ -3,8 +3,8 @@ class HomeStaysController < ApplicationController
 
   # GET /home_stays
   def index
-    home_stays = HomeStay.includes(:images)
-    home_stays_list = home_stays.where(user_id: current_user_id)
+    home_stays_list = HomeStay.includes(:images)
+    # home_stays_list = home_stays.where(user_id: current_user_id)
     render json: { data: { home_stays: home_stays_list.as_json(include: :images) } }, status: :ok
   end
 
@@ -63,6 +63,6 @@ class HomeStaysController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def home_stay_params
-    params.require(:home_stay).permit(:name, :location, :description, :no_of_rooms, :rating, :price, :images, :user_id)
+    params.require(:home_stay).permit(:name, :location, :description, :no_of_rooms, :rating, :price, :images)
   end
 end
