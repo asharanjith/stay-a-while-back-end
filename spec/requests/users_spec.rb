@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe '/users', type: :request do
   describe 'POST /create' do
     context 'with valid parameters' do
-      before (:example) do
-        post users_url, params: { user: {name: 'test'} }
+      before(:example) do
+        post users_url, params: { user: { name: 'test' } }
       end
       it 'creates a new User' do
         expect(User.count).to eq(1)
@@ -20,8 +20,8 @@ RSpec.describe '/users', type: :request do
     end
 
     context 'with invalid parameters' do
-      before (:example) do
-        post users_url, params: { user: {name: 'te'} }
+      before(:example) do
+        post users_url, params: { user: { name: 'te' } }
       end
       it 'does not create a new User' do
         expect(User.count).to eq(0)
@@ -39,8 +39,8 @@ RSpec.describe '/users', type: :request do
 
   describe 'POST /login' do
     context 'with valid parameters' do
-      before (:example) do
-        post users_url, params: { user: {name: 'test'} }
+      before(:example) do
+        post users_url, params: { user: { name: 'test' } }
         post '/login', params: { name: 'test' }
       end
       it 'provides a token' do
@@ -54,8 +54,8 @@ RSpec.describe '/users', type: :request do
       end
     end
     context 'with invalid parameters' do
-      before (:example) do
-        post users_url, params: { user: {name: 'test'} }
+      before(:example) do
+        post users_url, params: { user: { name: 'test' } }
         post '/login', params: { name: 'test2' }
       end
       it 'does not provide a token' do
