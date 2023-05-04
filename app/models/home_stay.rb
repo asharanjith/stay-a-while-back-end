@@ -1,7 +1,7 @@
 class HomeStay < ApplicationRecord
   belongs_to :user
-  has_many :images
-  has_many :reservations
+  has_many :images, dependent: :destroy
+  has_many :reservations, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 250, minimum: 4 }
   validates :location, presence: true, length: { maximum: 250 }
@@ -9,5 +9,4 @@ class HomeStay < ApplicationRecord
   validates :no_of_rooms, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :rating, presence: true
-  validates :user_id, presence: true
 end
