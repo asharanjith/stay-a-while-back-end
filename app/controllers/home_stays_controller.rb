@@ -16,11 +16,11 @@ class HomeStaysController < ApplicationController
 
   # POST /home_stays
   def create
-    home_stay = HomeStay.new(home_stay_params.merge(user_id: current_user_id))
+    @home_stay = HomeStay.new(home_stay_params)
+    @home_stay.user = @current_user
 
-    if home_stay.save
-      new_id = @home_stay.id
-      @images = params[:images].map { |image| { home_stay_id: new_id, url: image } }
+    if @home_stay.save
+      @images = params[:home_stay][:images].map { |image| { home_stay: @home_stay, url: image } }
       Image.insert_all(@images)
 
       render json: {
