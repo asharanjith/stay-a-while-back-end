@@ -39,7 +39,25 @@ class HomeStaysController < ApplicationController
     end
   end
 
-
+  # DELETE /home_stays/1
+  def destroy
+    home_stay = HomeStay.find_by(id: params[:id], user_id: current_user_id)
+    if home_stay & home_stay.destroy
+      render json: {
+        operation: 'success',
+        data: {
+          message: 'Home stay deleted successfully'
+        }
+      }, status: :ok
+    else
+      render json: {
+        operation: 'failed',
+        data: {
+          message: 'Home stay not found'
+        }
+      }, status: :not_found
+    end
+  end
 
   private
 
