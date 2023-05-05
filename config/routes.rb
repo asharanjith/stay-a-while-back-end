@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :images
-  resources :reservations, only: [:create, :destroy]
+  resources :reservations
   resources :home_stays
   resources :users, only: [:create]
   post "/login", to: "users#login"
