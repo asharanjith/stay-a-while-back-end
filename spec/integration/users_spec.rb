@@ -1,9 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'users', type: :request do
-
   path '/users' do
-
     post('create user') do
       tags 'Account'
       consumes 'application/json'
@@ -11,12 +9,11 @@ RSpec.describe 'users', type: :request do
         type: :object,
         properties: {
           user: { type: :object,
-            properties: {
-              name: { type: :string }
-            }
-          }
+                  properties: {
+                    name: { type: :string }
+                  } }
         },
-        required: [ 'name' ]
+        required: ['name']
       }
       response(200, 'successful') do
         after do |example|
@@ -32,7 +29,6 @@ RSpec.describe 'users', type: :request do
   end
 
   path '/login' do
-
     post('login user') do
       tags 'Account'
       consumes 'application/json'
@@ -41,7 +37,7 @@ RSpec.describe 'users', type: :request do
         properties: {
           name: { type: :string }
         },
-        required: [ 'name' ]
+        required: ['name']
       }
       response(200, 'successful') do
         after do |example|

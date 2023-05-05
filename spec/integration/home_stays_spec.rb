@@ -1,14 +1,11 @@
 require 'swagger_helper'
 
 RSpec.describe 'home_stays', type: :request do
-
   path '/home_stays' do
-
     get('list home_stays') do
       tags 'Home Stays'
       security [Bearer: []]
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -24,21 +21,20 @@ RSpec.describe 'home_stays', type: :request do
       tags 'Home Stays'
       security [Bearer: []]
       consumes 'application/json'
-      parameter name: :home_stay, in: :body, schema:{
+      parameter name: :home_stay, in: :body, schema: {
         type: :object,
-      properties: {
-        home_stay: { type: :object,
-          properties: {
-            :name => { type: :string },
-            :location => { type: :string },
-            :description => { type: :string },
-            :no_of_rooms => { type: :integer },
-            :rating => { type: :integer },
-            :price => { type: :integer },
-          },
-        },
-        images: { type: :array, items: { type: :string } }
-      }
+        properties: {
+          home_stay: { type: :object,
+                       properties: {
+                         name: { type: :string },
+                         location: { type: :string },
+                         description: { type: :string },
+                         no_of_rooms: { type: :integer },
+                         rating: { type: :integer },
+                         price: { type: :integer }
+                       } },
+          images: { type: :array, items: { type: :string } }
+        }
       }
       response(200, 'successful') do
         after do |example|
