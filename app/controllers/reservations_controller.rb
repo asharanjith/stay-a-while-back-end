@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: %i[create destroy]
+  before_action :set_reservation, only: %i[destroy]
 
 
   def index
@@ -12,8 +12,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-    @reservation.user= @current_user
-    @reservation.home_stay=HomeStay.find(params[:reservation][:home_stay_id])
+    @reservation.user = @current_user
     if @reservation.save
       render json: @reservation, status: :created
     else
@@ -22,7 +21,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    unless @user == Reservation.find(params[:id]).user
+    unless @current_user == Reservation.find(params[:id]).user
       return render json: { error: 'You cannot destroy this reservation' },
                     status: :unauthorized
     end
