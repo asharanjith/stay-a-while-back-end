@@ -1,0 +1,186 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/home_stays":
+    get:
+      summary: list home_stays
+      tags:
+      - Home Stays
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create home_stay
+      tags:
+      - Home Stays
+      security:
+      - Bearer: []
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                home_stay:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    location:
+                      type: string
+                    description:
+                      type: string
+                    no_of_rooms:
+                      type: integer
+                    rating:
+                      type: integer
+                    price:
+                      type: integer
+                images:
+                  type: array
+                  items:
+                    type: string
+  "/home_stays/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show home_stay
+      tags:
+      - Home Stays
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete home_stay
+      tags:
+      - Home Stays
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: successful
+  "/reservations":
+    get:
+      summary: list reservations
+      tags:
+      - Reservations
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create reservation
+      tags:
+      - Reservations
+      security:
+      - Bearer: []
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation:
+                  type: object
+                  properties:
+                    no_of_persons:
+                      type: integer
+                    start_date:
+                      type: string
+                      format: date
+                    end_date:
+                      type: string
+                      format: date
+                    home_stay_id:
+                      type: integer
+  "/reservations/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    delete:
+      summary: delete reservation
+      tags:
+      - Reservations
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: successful
+  "/users":
+    post:
+      summary: create user
+      tags:
+      - Account
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+              required:
+              - name
+  "/login":
+    post:
+      summary: login user
+      tags:
+      - Account
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+              - name
+components:
+  securitySchemes:
+    Bearer:
+      descriptions: Provide token(if not create create by login)
+      type: apiKey
+      name: Authorization
+      in: header
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
