@@ -3,14 +3,19 @@ class ReservationsController < ApplicationController
 
 
   def index
-    render json: @user.reservation
+    render json: {
+      data: {
+        reservation: @current_user.reservations
+      }
+    }
   end
 
   def create
     @reservation = Reservation.new(reservation_params)
-
+    @reservation.user= @current_user
+    @reservation.home_stay=HomeStay.find(params[:reservation][:home_stay_id])
     if @reservation.save
-      render json: @reservation, status: :created, location: @reservation
+      render json: @reservation, status: :created
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
@@ -35,6 +40,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:no_of_persons, :start_date, :end_date, :user_id, :home_stay_id)
+    params.require(:reservation).permit(:no_of_persons, :start_date, :end_date, :home_stay_id)
   end
 end
