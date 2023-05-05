@@ -43,7 +43,7 @@ Stay A While Backend holds the BackEnd development source rails api of an app th
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
   </ul>
 </details>
 
@@ -60,6 +60,19 @@ Stay A While Backend holds the BackEnd development source rails api of an app th
     <li>
       <img src="./app/assets/images/entity_relationship_diagram.png" alt="diagram"  height="auto" />
     </li>
+ </ul>
+</details>
+
+<details>
+  <summary>Kanban Board</summary>
+  <ul>
+    <li><a href="https://github.com/users/asharanjith/projects/5/views/2">Project link</a></li>
+    <li>
+      <img src="./app/assets/images/Kanban Board.png" alt="diagram"  height="auto" />
+    </li>
+    
+</li>
+
  </ul>
 </details>
 
