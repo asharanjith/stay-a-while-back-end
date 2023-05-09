@@ -23,7 +23,6 @@
   - [Usage](#usage)
   - [Run tests](#run-tests)
   - [Deployment](#triangular_flag_on_post-deployment)
-  - [Generate the API documentation](#api-documentation)
 - [👥 Authors](#authors)
 <!-- - [🔭 Future Features](#future-features) -->
 - [🤝 Contributing](#contributing)
@@ -130,17 +129,6 @@ If VsCode is your default code editor, run:
 code .
 ```
 
-Create a file called .env in your root directory with the following content:
-```sh
-  DB_USERNAME = postgres
-  DB_HOST = localhost
-  DB_PASSWORD = YOUR-PG-ADMIN-PASSWORD
-  DB_PORT = 5432
-  
- SECRET_KEY_BASE = ce34cefe688c77669768a17ea676b9054c7a2a541441af6e07bdd636897109b175cfbaf3d5d05d31771940c199719a0f55819228a2125ca387a99d207c9e2a54
-
-```
-
 You are all set up!
 ### Install
 
@@ -155,35 +143,29 @@ To setup the database, run
 ```sh
 rails db:drop db:create db:migrate
 ```
-
-To run the project, execute the following command:
-
-```sh
-ruby bin/rails server
-```
-
 ### Run tests
 
 To run tests, run the following command:
 
 ```sh
-  rspec spec spec/[filename.rb]
+  rspec spec
 ```
 
-### Generate the API documentation
-To generate the API documentation, run the following command:
-
-```sh
-  rails rswag:specs:swaggerize
-```
 - The file database.yml is already configured to use those variables
  ### Deployment
+ To run the project, execute the following command:
+```sh
+ruby bin/rails server
+```
 
 You can deploy this project using:
 
 ```sh
 http://[::1]:3000
+or
 http://127.0.0.1:3000
+or
+localhost:3000
 ```  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -234,7 +216,7 @@ http://127.0.0.1:3000
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/asharanjith/stay-a-while-front-end/issues).
+Feel free to check the [issues page](https://github.com/asharanjith/stay-a-while-back-end/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
