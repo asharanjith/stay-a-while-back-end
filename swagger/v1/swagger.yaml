@@ -11,6 +11,12 @@ paths:
       - Home Stays
       security:
       - Bearer: []
+      parameters:
+      - name: my_home_stays
+        in: query
+        required: false
+        schema:
+          type: boolean
       responses:
         '200':
           description: successful
