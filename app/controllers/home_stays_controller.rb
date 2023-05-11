@@ -40,12 +40,7 @@ class HomeStaysController < ApplicationController
   def destroy
     home_stay = HomeStay.find_by(id: params[:id], user: @current_user)
     if home_stay&.destroy
-      render json: {
-        operation: 'success',
-        data: {
-          message: 'Home stay deleted successfully'
-        }
-      }, status: :ok
+      render json: { operation: "Home deleted successfully with id #{home_stay.id}" }, status: :ok
     else
       render json: {
         operation: 'failed',
