@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.find_by(name: params[:name])
     if @user
       token = jwt_encode({ user_id: @user.id })
-      render json: { token: }
+      render json: { token: token, user: @user }
     else
       render json: { error: 'Invalid name' }, status: :unauthorized
     end
