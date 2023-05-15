@@ -32,10 +32,10 @@ RSpec.configure do |config|
       },
       servers: [
         {
-          url: 'http://{defaultHost}',
+          url: 'https://{defaultHost}',
           variables: {
             defaultHost: {
-              default: 'localhost:3000'
+              default: 'stay-a-while-api.onrender.com'
             }
           }
         }
