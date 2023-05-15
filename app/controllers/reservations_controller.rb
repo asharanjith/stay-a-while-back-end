@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
   def index
     render json: {
       data: {
-        reservation: @current_user.reservations
+        reservation: @current_user.reservations.order(created_at: :desc)
       }
     }
   end
