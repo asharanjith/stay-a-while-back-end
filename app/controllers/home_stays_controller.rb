@@ -2,6 +2,7 @@ class HomeStaysController < ApplicationController
   # GET /home_stays
   def index
     home_stays_list = HomeStay.includes(:images)
+    home_stays_list = home_stays_list.where(user: @current_user) if params[:my_home_stays] == 'true'
     render json: { data: { home_stays: home_stays_list.as_json(include: :images) } }, status: :ok
   end
 
@@ -39,12 +40,7 @@ class HomeStaysController < ApplicationController
   def destroy
     home_stay = HomeStay.find_by(id: params[:id], user: @current_user)
     if home_stay&.destroy
-      render json: {
-        operation: 'success',
-        data: {
-          message: 'Home stay deleted successfully'
-        }
-      }, status: :ok
+      render json: { operation: "Home deleted successfully with id #{home_stay.id}" }, status: :ok
     else
       render json: {
         operation: 'failed',

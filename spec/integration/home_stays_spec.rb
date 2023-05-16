@@ -5,6 +5,8 @@ RSpec.describe 'home_stays', type: :request do
     get('list home_stays') do
       tags 'Home Stays'
       security [Bearer: []]
+      consumes 'application/json'
+      parameter name: :my_home_stays, in: :query, type: :boolean, required: false
       response(200, 'successful') do
         after do |example|
           example.metadata[:response][:content] = {
