@@ -153,12 +153,8 @@ To run tests, run the following command:
 
 - The file database.yml is already configured to use those variables
  ### Deployment
- To run the project, execute the following command:
-```sh
-ruby bin/rails server
-```
-
-- To add the master.key and add key value pare for jwt secret key, follow the following 
+ 
+To add the master.key and add key value pare for jwt secret key, follow the following 
 
 1. Please delete config/credentials.yml.enc & config/master.key and run the bellow lin in command prompt
 2. Run below command (run only in vs code)
@@ -170,6 +166,14 @@ ruby bin/rails server
 EDITOR="code --wait" bin/rails credentials:edit
 ```
 4. In the new file opened after running the above command, add a key value pair there for jwt
+![railssetup](https://github.com/asharanjith/stay-a-while-back-end/assets/108219288/2b54b86b-69f8-47af-8748-9d9cb730ba35)
+
+
+
+ To run the project, execute the following command:
+```sh
+ruby bin/rails server
+```
 
 You can deploy this project using:
 
