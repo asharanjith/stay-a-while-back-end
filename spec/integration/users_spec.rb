@@ -15,7 +15,7 @@ RSpec.describe 'users', type: :request do
         },
         required: ['name']
       }
-      response(200, 'successful') do
+      response(201, 'successful') do
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -23,6 +23,7 @@ RSpec.describe 'users', type: :request do
             }
           }
         end
+        let(:user) { { user: { name: 'test' } } }
         run_test!
       end
     end
@@ -47,6 +48,10 @@ RSpec.describe 'users', type: :request do
             }
           }
         end
+        before(:each) do
+          User.create(name: 'test1')
+        end
+        let(:user) { { name: 'test1' } }
         run_test!
       end
     end

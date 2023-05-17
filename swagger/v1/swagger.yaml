@@ -28,7 +28,7 @@ paths:
       - Bearer: []
       parameters: []
       responses:
-        '200':
+        '201':
           description: successful
       requestBody:
         content:
@@ -99,7 +99,7 @@ paths:
       - Bearer: []
       parameters: []
       responses:
-        '200':
+        '201':
           description: successful
       requestBody:
         content:
@@ -144,7 +144,7 @@ paths:
       - Account
       parameters: []
       responses:
-        '200':
+        '201':
           description: successful
       requestBody:
         content:

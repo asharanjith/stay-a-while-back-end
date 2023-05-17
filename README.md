@@ -141,18 +141,27 @@ Install this project with:
 
 To setup the database, run
 ```sh
-rails db:drop db:create db:migrate
-```
-### Run tests
-
-To run tests, run the following command:
-
-```sh
-  rspec spec
+rails db:drop db:create db:migrate db:seed
 ```
 
-- The file database.yml is already configured to use those variables
  ### Deployment
+ 
+To add the master.key and add key value pair for jwt secret key, follow the following 
+
+1. Please delete config/credentials.yml.enc & config/master.key and run the bellow lin in command prompt
+2. Run below command (run only in vs code)
+```sh 
+    EDITOR=code rails credentials:edit
+  ```   
+3. Run below command
+```sh 
+EDITOR="code --wait" bin/rails credentials:edit
+```
+4. In the new file opened after running the above command, add a key value pair there for jwt
+![railssetup](https://github.com/asharanjith/stay-a-while-back-end/assets/108219288/2b54b86b-69f8-47af-8748-9d9cb730ba35)
+
+
+
  To run the project, execute the following command:
 ```sh
 ruby bin/rails server
@@ -167,6 +176,16 @@ http://127.0.0.1:3000
 or
 localhost:3000
 ```  
+
+### Run tests
+
+To run tests, run the following command:
+
+```sh
+  rspec spec
+```
+
+- The file database.yml is already configured to use those variables
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
