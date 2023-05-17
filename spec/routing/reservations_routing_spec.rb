@@ -10,7 +10,6 @@ RSpec.describe ReservationsController, type: :routing do
       expect(post: '/reservations').to route_to('reservations#create')
     end
 
-
     it 'routes to #destroy' do
       expect(delete: '/reservations/1').to route_to('reservations#destroy', id: '1')
     end
