@@ -6,6 +6,13 @@ RSpec.describe 'reservations', type: :request do
       tags 'Reservations'
       security [Bearer: []]
       response(200, 'successful') do
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
         before(:each) do
           @user = User.create(name: 'test2')
           post '/login', params: { name: 'test2' }
@@ -33,6 +40,13 @@ RSpec.describe 'reservations', type: :request do
         }
       }
       response(201, 'successful') do
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
         before(:each) do
           @user = User.create(name: 'test2')
           @home_stay = HomeStay.create(name: 'test', location: 'test', description: 'test', no_of_rooms: 1, rating: 1,
@@ -58,6 +72,13 @@ RSpec.describe 'reservations', type: :request do
       tags 'Reservations'
       security [Bearer: []]
       response(200, 'successful') do
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
         before(:each) do
           @user = User.create(name: 'test2')
           @home_stay = HomeStay.create(name: 'test', location: 'test', description: 'test', no_of_rooms: 1, rating: 1,

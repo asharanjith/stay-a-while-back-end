@@ -8,6 +8,13 @@ RSpec.describe 'home_stays', type: :request do
       consumes 'application/json'
       parameter name: :my_home_stays, in: :query, type: :boolean, required: false
       response(200, 'successful') do
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
         before(:each) do
           @user = User.create(name: 'test2')
           post '/login', params: { name: 'test2' }
@@ -38,6 +45,13 @@ RSpec.describe 'home_stays', type: :request do
         }
       }
       response(201, 'successful') do
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
         before(:each) do
           @user = User.create(name: 'test2')
           post '/login', params: { name: 'test2' }
@@ -61,6 +75,13 @@ RSpec.describe 'home_stays', type: :request do
       tags 'Home Stays'
       security [Bearer: []]
       response(200, 'successful') do
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
         before(:each) do
           @user = User.create(name: 'test2')
           post '/login', params: { name: 'test2' }
@@ -79,6 +100,13 @@ RSpec.describe 'home_stays', type: :request do
       tags 'Home Stays'
       security [Bearer: []]
       response(200, 'successful') do
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
         before(:each) do
           @user = User.create(name: 'test2')
           post '/login', params: { name: 'test2' }
