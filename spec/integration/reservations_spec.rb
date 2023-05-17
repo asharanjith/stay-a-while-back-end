@@ -11,7 +11,7 @@ RSpec.describe 'reservations', type: :request do
           post '/login', params: { name: 'test2' }
           @response_body = JSON.parse(response.body, symbolize_names: true)
         end
-        let(:Authorization) { 'Bearer ' + @response_body[:token] }
+        let(:Authorization) { "Bearer #{@response_body[:token]}" }
         run_test!
       end
     end
@@ -40,7 +40,7 @@ RSpec.describe 'reservations', type: :request do
           post '/login', params: { name: 'test2' }
           @response_body = JSON.parse(response.body, symbolize_names: true)
         end
-        let(:Authorization) { 'Bearer ' + @response_body[:token] }
+        let(:Authorization) { "Bearer #{@response_body[:token]}" }
         let(:reservation) do
           { reservation: { no_of_persons: 1, start_date: '2021-05-01', end_date: '2021-05-02',
                            home_stay_id: @home_stay.id } }
@@ -67,7 +67,7 @@ RSpec.describe 'reservations', type: :request do
           post '/login', params: { name: 'test2' }
           @response_body = JSON.parse(response.body, symbolize_names: true)
         end
-        let(:Authorization) { 'Bearer ' + @response_body[:token] }
+        let(:Authorization) { "Bearer #{@response_body[:token]}" }
         let(:id) { @reservation.id }
         run_test!
       end

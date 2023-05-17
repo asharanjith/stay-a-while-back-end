@@ -13,7 +13,7 @@ RSpec.describe 'home_stays', type: :request do
           post '/login', params: { name: 'test2' }
           @response_body = JSON.parse(response.body, symbolize_names: true)
         end
-        let(:Authorization) { 'Bearer ' + @response_body[:token] }
+        let(:Authorization) { "Bearer #{@response_body[:token]}" }
         run_test!
       end
     end
@@ -43,7 +43,7 @@ RSpec.describe 'home_stays', type: :request do
           post '/login', params: { name: 'test2' }
           @response_body = JSON.parse(response.body, symbolize_names: true)
         end
-        let(:Authorization) { 'Bearer ' + @response_body[:token] }
+        let(:Authorization) { "Bearer #{@response_body[:token]}" }
         let(:home_stay) do
           { home_stay: { name: 'test', location: 'test', description: 'test', no_of_rooms: 1, rating: 1, price: 1 },
             images: ['test'] }
@@ -66,7 +66,7 @@ RSpec.describe 'home_stays', type: :request do
           post '/login', params: { name: 'test2' }
           @response_body = JSON.parse(response.body, symbolize_names: true)
         end
-        let(:Authorization) { 'Bearer ' + @response_body[:token] }
+        let(:Authorization) { "Bearer #{@response_body[:token]}" }
         let(:id) do
           HomeStay.create(name: 'test', location: 'test', description: 'test', no_of_rooms: 1, rating: 1, price: 1,
                           user_id: @user.id).id
@@ -84,7 +84,7 @@ RSpec.describe 'home_stays', type: :request do
           post '/login', params: { name: 'test2' }
           @response_body = JSON.parse(response.body, symbolize_names: true)
         end
-        let(:Authorization) { 'Bearer ' + @response_body[:token] }
+        let(:Authorization) { "Bearer #{@response_body[:token]}" }
         let(:id) do
           HomeStay.create(name: 'test', location: 'test', description: 'test', no_of_rooms: 1, rating: 1, price: 1,
                           user_id: @user.id).id

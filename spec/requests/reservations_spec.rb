@@ -16,12 +16,12 @@ RSpec.describe '/reservations', type: :request do
     @home_stay = HomeStay.create(name: 'test', location: 'test', description: 'test', no_of_rooms: 1, rating: 1,
                                  price: 1, user_id: @user.id)
     @reservation = Reservation.create(no_of_persons: 1, start_date: '2021-05-01', end_date: '2021-05-02',
-      home_stay_id: @home_stay.id, user_id: @user.id)
+                                      home_stay_id: @home_stay.id, user_id: @user.id)
     post '/login', params: { name: 'test2' }
     @response_body = JSON.parse(response.body, symbolize_names: true)
   end
   let(:header) do
-    { Authorization: 'Bearer ' + @response_body[:token] }
+    { Authorization: "Bearer #{@response_body[:token]}" }
   end
   describe 'GET /index' do
     before(:example) do
@@ -36,7 +36,11 @@ RSpec.describe '/reservations', type: :request do
   end
   describe 'POST /create' do
     before(:example) do
-      post reservations_url, params: { reservation: { home_stay_id: @home_stay.id, no_of_persons: 1, start_date: '2021-05-01', end_date: '2021-05-02' } }, headers: header, as: :json
+      post reservations_url,
+           params: { reservation: { home_stay_id: @home_stay.id, no_of_persons: 1,
+                                    start_date: '2021-05-01',
+                                    end_date: '2021-05-02' } },
+           headers: header, as: :json
     end
     it 'creates a new Reservation' do
       expect(Reservation.count).to eq(2)
