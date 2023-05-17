@@ -69,8 +69,8 @@ Stay A While Backend holds the BackEnd development source rails api of an app th
     <li>
       <img src="./app/assets/images/Kanban Board.png" alt="diagram"  height="auto" />
     </li>
-    
-</li>
+    <li>We are a team of four members <a href="https://github.com/asharanjith">Asha </a>,
+    <a href="https://github.com/elarhadu">Emmanuella </a>,<a href="https://github.com/admirerbrown">Samuel </a> and <a href="https://github.com/rbhatt1999">Rohit</a> </li>  
 
  </ul>
 </details>
