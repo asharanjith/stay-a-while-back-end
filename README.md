@@ -141,17 +141,9 @@ Install this project with:
 
 To setup the database, run
 ```sh
-rails db:drop db:create db:migrate
-```
-### Run tests
-
-To run tests, run the following command:
-
-```sh
-  rspec spec
+rails db:drop db:create db:migrate db:seed
 ```
 
-- The file database.yml is already configured to use those variables
  ### Deployment
  
 To add the master.key and add key value pare for jwt secret key, follow the following 
@@ -184,6 +176,16 @@ http://127.0.0.1:3000
 or
 localhost:3000
 ```  
+
+### Run tests
+
+To run tests, run the following command:
+
+```sh
+  rspec spec
+```
+
+- The file database.yml is already configured to use those variables
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
