@@ -146,7 +146,7 @@ rails db:drop db:create db:migrate db:seed
 
  ### Deployment
  
-To add the master.key and add key value pare for jwt secret key, follow the following 
+To add the master.key and add key value pair for jwt secret key, follow the following 
 
 1. Please delete config/credentials.yml.enc & config/master.key and run the bellow lin in command prompt
 2. Run below command (run only in vs code)
