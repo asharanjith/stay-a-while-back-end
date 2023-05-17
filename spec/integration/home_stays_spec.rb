@@ -8,13 +8,12 @@ RSpec.describe 'home_stays', type: :request do
       consumes 'application/json'
       parameter name: :my_home_stays, in: :query, type: :boolean, required: false
       response(200, 'successful') do
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
+        before(:each) do
+          @user = User.create(name: 'test2')
+          post '/login', params: { name: 'test2' }
+          @response_body = JSON.parse(response.body, symbolize_names: true)
         end
+        let(:Authorization) { 'Bearer ' + @response_body[:token] }
         run_test!
       end
     end
@@ -38,13 +37,16 @@ RSpec.describe 'home_stays', type: :request do
           images: { type: :array, items: { type: :string } }
         }
       }
-      response(200, 'successful') do
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
+      response(201, 'successful') do
+        before(:each) do
+          @user = User.create(name: 'test2')
+          post '/login', params: { name: 'test2' }
+          @response_body = JSON.parse(response.body, symbolize_names: true)
+        end
+        let(:Authorization) { 'Bearer ' + @response_body[:token] }
+        let(:home_stay) do
+          { home_stay: { name: 'test', location: 'test', description: 'test', no_of_rooms: 1, rating: 1, price: 1 },
+            images: ['test'] }
         end
         run_test!
       end
@@ -59,14 +61,15 @@ RSpec.describe 'home_stays', type: :request do
       tags 'Home Stays'
       security [Bearer: []]
       response(200, 'successful') do
-        let(:id) { '123' }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
+        before(:each) do
+          @user = User.create(name: 'test2')
+          post '/login', params: { name: 'test2' }
+          @response_body = JSON.parse(response.body, symbolize_names: true)
+        end
+        let(:Authorization) { 'Bearer ' + @response_body[:token] }
+        let(:id) do
+          HomeStay.create(name: 'test', location: 'test', description: 'test', no_of_rooms: 1, rating: 1, price: 1,
+                          user_id: @user.id).id
         end
         run_test!
       end
@@ -76,14 +79,15 @@ RSpec.describe 'home_stays', type: :request do
       tags 'Home Stays'
       security [Bearer: []]
       response(200, 'successful') do
-        let(:id) { '123' }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
+        before(:each) do
+          @user = User.create(name: 'test2')
+          post '/login', params: { name: 'test2' }
+          @response_body = JSON.parse(response.body, symbolize_names: true)
+        end
+        let(:Authorization) { 'Bearer ' + @response_body[:token] }
+        let(:id) do
+          HomeStay.create(name: 'test', location: 'test', description: 'test', no_of_rooms: 1, rating: 1, price: 1,
+                          user_id: @user.id).id
         end
         run_test!
       end
