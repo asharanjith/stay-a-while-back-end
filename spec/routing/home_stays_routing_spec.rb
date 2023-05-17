@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe HomeStaysController, type: :routing do
   describe 'routing' do
-    let (:userOne) do
+    let(:userOne) do
       User.new(name: 'Test user')
     end
-    let (:home_stay) do
+    let(:home_stay) do
       HomeStay.new(name: 'Paradise', location: 'Kashmir', description: 'Like Paradise', no_of_rooms: 2, rating: 3,
-        price: 245, user: userOne)
+                   price: 245, user: userOne)
     end
     it 'routes to #index' do
       expect(get: '/home_stays').to route_to('home_stays#index')
