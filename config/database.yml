@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: 2023
+
+development:
+  <<: *default
+  database: stay_a_while_back_end_development
+
+test:
+  <<: *default
+  database: stay_a_while_back_end_test
+
+production:
+  <<: *default
+  database: stay_a_while_back_end_production
+  username: stay_a_while_back_end
+  password: <%= ENV["STAY_A_WHILE_BACK_END_DATABASE_PASSWORD"] %>
