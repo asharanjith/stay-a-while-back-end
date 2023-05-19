@@ -14,6 +14,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🚀 Kanban Board](#kanban-board)
   - [🚀 Live Demo](#live-demo)
   - [🚀 Front-End Link](#front-end)
 - [💻 Getting Started](#getting-started)
@@ -62,19 +63,18 @@ Stay A While Backend holds the BackEnd development source rails api of an app th
  </ul>
 </details>
 
-<details>
-  <summary>Kanban Board</summary>
-  <ul>
-    <li><a href="https://github.com/users/asharanjith/projects/5/views/2">Project link</a></li>
-    <li>
-      <img src="./app/assets/images/Kanban Board.png" alt="diagram"  height="auto" />
-    </li>
-    <li>We are a team of four members <a href="https://github.com/asharanjith">Asha </a>,
-    <a href="https://github.com/elarhadu">Emmanuella </a>,<a href="https://github.com/admirerbrown">Samuel </a> and <a href="https://github.com/rbhatt1999">Rohit</a> </li>  
 
- </ul>
-</details>
+<!-- KANBAN BOARD -->
+## 🚀 Kanban Board <a name="kanban-board"></a>
 
+We are a team of four members <a href="https://github.com/asharanjith">Asha </a>, <a href="https://github.com/elarhadu">Emmanuella </a>,<a href="https://github.com/admirerbrown">Samuel </a> and <a href="https://github.com/rbhatt1999">Rohit</a>
+
+[Project link](https://github.com/users/asharanjith/projects/5/views/2)
+
+
+Initial Kanban Board Status
+
+<img src="./app/assets/images/Kanban Board.png" alt="diagram"  height="auto" />
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
